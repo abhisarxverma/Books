@@ -36,5 +36,27 @@ class FrenchDeck:
 
 **🔍 Membership (in deck)**	            - Enables efficient searching within the deck.
 
+> *An abstract base class (ABC) in Python is a class that cannot be instantiated and serves as a blueprint, enforcing the implementation of specific methods in its subclasses using the ABC module.*
 
-## **How Special Methods Are Used**
+## **Collections API**
+
+- **Collections ABC** inherit from the **Iterable**, **Sized**, **Container** ABC's.
+- **Reversible ABC** inherit form only the **Iterable ABC**.
+- **Sequence**, **Mapping**, **set** inherit from the **collections ABC**.
+- **Sequence** only also inherit from the **Reversible ABC**.
+
+## Chapter Summary
+By  implementing  ==special  methods==,  your  objects  can  behave  like  the  built-in  types,
+enabling the expressive coding style the community considers Pythonic.
+
+A basic requirement for a Python object is to provide usable string representations of
+itself,  one  used  for  debugging  and  logging,  another  for  presentation  to  end  users.
+That is why the special methods __repr__ and __str__ exist in the data model.
+
+Emulating  sequences,  as  shown  with  the  FrenchDeck  example,  is  one  of  the  most
+common  uses  of  the  special  methods.  For  example,  database  libraries  often  return
+query  results  wrapped  in  sequence-like  collections.
+
+Thanks to operator overloading, Python offers a rich selection of numeric types, from
+the  built-ins  to  decimal.Decimal  and  fractions.Fraction,  all  supporting  infix
+arithmetic operators. 
