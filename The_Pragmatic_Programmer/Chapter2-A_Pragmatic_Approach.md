@@ -23,3 +23,40 @@ If you have the same thing expressed twice, then you have to remember to change 
 DRY is about duplication of knowledge, of **intent**. it's about expressing the same thing in two different places, possibly in two different ways.
 
 > *Make it Easy to Reuse*
+
+## **🫅 Orthogonality**
+
+> *In computing orthogonality refers to the kind of independence or decoupling.*
+
+Two or more things are orthogonal if changes in one do not affect any of the others. In a well designed system you can, the database code will be orthogonal to the user interface: you can change the interface without affecting the database, and swap the databases without changing the interface.
+
+### **Benefits of Orthogonality**
+
+> **Eliminate Effects Between Unrelated Things - We want to design components that are self-contained, independent, and with a single, well-defined purpose. You know that you can change one without having to worry about the rest.**
+
+- **Gain Productivity**
+    - *Saves time* - There is no need to keep changing existing code as you add new code, which saves a lot of time and energy.
+    - *Promotes reuse* - Easier to combine with other components and reconfigure and reengineer.
+    - *More functionality* - Combining orthogonal components, gets more functionality per unit.
+
+- **Reduce Risk**
+    - *Isolation* - Diseased sections of the code are isolated, less likely to spread the symptoms to the rest of system.
+    - *Less fragile* - Make small changes and fixes to a particular area, and any problems you generate will be restricted to that area.
+    - *Better tested* - Easier to design and run tests on orthogoanl components.
+    - *Third-party Independence* - You will not be tightly tied to the particular vendo, product or platform. BEcause the interfaces to these third-party components will be isolated.
+
+### **Design**
+
+**Easy test for orthogonality** - Once you have your components mapped out, ask yourself: *If I dramatically change the requirements behind a particular function, how many modules are affected?*. In orthogoanl system, the answer should be 1.
+
+### **Toolkits and Libraries**
+
+*Choose your technologies wisely*. When you bring in a toolkit (or even library from other memebers of your team), ask yourself whether it imposes changes on your code that shouldn't be there.
+
+### **Coding**
+
+Techniques to maintain orthogonality.
+
+- *Keep your code decoupled* - Write shy code.
+- *Avoid global data* - Global data increase the risk of non orthogonality.
+- *Avoid similar functions*
