@@ -60,3 +60,23 @@ Techniques to maintain orthogonality.
 - *Keep your code decoupled* - Write shy code.
 - *Avoid global data* - Global data increase the risk of non orthogonality.
 - *Avoid similar functions*
+
+## **Reversibility**
+
+**The problem is that ciritical decisions aren't reversible.**
+
+The critical decisions are like being written in the sand at the beach, a big wave can come and wipe them out at any time.
+
+> **There are no final decisions**
+
+- Hide third party API's behind your own abstraction layer.
+- Break your code into components even if you plan to deploy on a single server
+
+## **TRACER BULLETS**
+
+> *Tracer bullets are loaded at intervals alongside regular ammunaition. When they're fired, their phosphoris ignites and leaves a pytotechnic trail from the gun to whatever they hit. If the tracers are hitting the target, then so are the regular bullets. Soldiers use these tracer rounds to refine their aim: it's pragmatic, real time feedback under actual conditions.*
+
+### **Code that glows in the dark**
+
+> **Use Tracer Bullets to Find the Target**
+
