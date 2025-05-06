@@ -80,3 +80,23 @@ The critical decisions are like being written in the sand at the beach, a big wa
 
 > **Use Tracer Bullets to Find the Target**
 
+It simply is not fully functional. However, once you have achieved end-to-end connection between the components of your system, you can check how close to the target you are, adjusting if necessary, Once you are on target, adding functionality is easy.
+
+**Advantages of Tracer code**
+
+1. User get to see something working early : They will tell you how closer to the target each iteration is.
+2. Developers build a structure to work in : Your team can directly start working with confidence and consistency.
+3. You have an integration platform : Rather than a big-bang integration you will be integrating every day(often many times a day)
+4. You have something to demonstrate : Sponsors and Investors often have tendency to want to see something working, tracer code will do that.
+5. You have a better feel for progress : You will tackle challenges one by one, and thus measure the performance and take right decisions at right time.
+
+### **Tracer bullets don't always hit their target**
+
+Tracer bullets show what you are hitting, that may not always be the target. Small body of code has low inertia, it's easier to change and redirect to what you or the user wanted really, fastly and cheaply.
+
+### **Tracer code versus Prototyping**
+
+In Prototying, You throw away the earlier code and then code again while correcting the mistakes, and Once all the components are done then you code that into the final environment, interfacing to the user.
+
+In Tracer code, you do not want to achieve the perfect code for a particular component, but what you want is that you code a minimal system that replicate what is the main feature of the project that goes from every main components of the project. And this will be given to users to have interactions and give feedback and this will be the architectural code on which the developers will hang code on.
+
