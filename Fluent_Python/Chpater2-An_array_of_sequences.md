@@ -16,3 +16,5 @@ Another way of grouping :
 ## **List Comprehension and Generator Expressions**
 
 > *Python programmers use cool words for - List Comprehension - **listcomps** / Generator Expressions - **genexps***
+
+Genexps are more faster than the listcomps at least in some cases.
