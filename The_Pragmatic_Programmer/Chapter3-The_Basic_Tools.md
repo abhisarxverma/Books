@@ -59,3 +59,47 @@ Once you discover a new feature, consciously look for opportunities to use the n
 Dig into your editor's extension language.Work out how to use it to automate some of the repetitive things you do. Often you'll just need a line or two of code.
 
 Sometimes you might take it further still, and you'll find yourself writing a full blown extension. If so, publish it: If you had a need rot it, other people will too.
+
+## **Version Cntrol**
+
+### **It starts at source**
+With a properly configured source code control system, you can always go back to a *previous version* of your software.
+
+> **Always use Version Control**
+
+### **Branching out**
+You can create a branch at any point in your project's history, and any work you do in that branch will be isolated from all other branches. Multiple people can even by working on a branch; ina way, branches are like little clone projects.
+
+## **Debugging**
+
+### **Psychology of debugging**
+
+> **Fix the problem not the blame**
+
+It doesn't really matter whether the bug is your fault or someone else's. It is still your problem.
+
+### **A debugging mindset**
+
+Before you start debugging. It's important to adopt the right mindset, turn off many of the defenses you use each day to protect your ego, tune out any project pressures you may be under, and get yourself comfortable.
+
+> **Don't Panic**
+
+Don't waste a single neuron on the train of thought that begins "but that can't happen". Resist the urge to fix just the symptoms you see. Always try to discover the root cause of a problem, not just this particular appearance of it.
+
+### **Where to start**
+
+- Before you start to look for the bug, make sure that you are working on code that built cleanly - without warnings.
+- You can't afford to waste time debugging the coincidences, you first need to be accurate in your observation.
+- You may actually need to watch the user to get the sufficient level of detail.
+
+### **Debugging strategies**
+
+**Reproducing Bugs**
+
+The best way to start fixing a bug is to make it reproducible.
+
+But we want more than a but that can be reproduced by following some long series of steps; we want a bug that can be reproduced with a single command.
+
+> **Failing Test Before Fixing Code**
+
+### **Coder in a Strange Land**
