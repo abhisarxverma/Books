@@ -74,3 +74,34 @@ As you **cannot hash** a tuple with **mutable object** in it, you cannot use tha
 - Tuples are allocated the ***exact memory space*** of their length, but the lists are given ***some room to spare***, to amortize the cost for the future appends.
 
 - The  references  to  the  items  in  a  tuple  are  stored  in  an  array  in  the ***tuple  struct***, while  a  list  holds  a  ***pointer  to  an  array  of  references***  *stored  elsewhere*.  The  indirection is necessary because when a list grows beyond the space currently allocated,  Python  needs  to  reallocate  the  array  of  references  to  make  room.  The  extra indirection makes CPU caches less effective.
+
+## **Pattern Matching With Sequences**
+
+```python
+def handle_command(self, message):
+        match message:  
+            case ['BEEPER', frequency, times]:  
+                self.beep(times, frequency)
+            case ['NECK', angle]:  
+                self.rotate_neck(angle)
+            case ['LED', ident, intensity]:  
+                self.leds[ident].set_brightness(ident, intensity)
+            case ['LED', ident, red, green, blue]:  
+                self.leds[ident].set_color(ident, red, green, blue)
+            case _:  
+                raise InvalidCommand(message)
+```
+
+The **match/case** have one key improvement over the **switch/case** of the C language, which is the **destructuring**.
+
+The **handle command** function takes a *message* sequence and perform a match case.
+
+In general, a sequence pattern matches the subject if:
+
+1. The subject is a sequence and;
+2. The subject and the pattern have the same number of items and;
+3. Each corresponding item matches, including nested items.
+
+The unknown variable that you are seeing in the case's sequence, will try to unpack the items in the message into them.
+
+The last case block have the "_", which is the default case , if the messsage does not match to any of the cases above then, it gets to the default "_" case.
