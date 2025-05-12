@@ -103,3 +103,72 @@ But we want more than a but that can be reproduced by following some long series
 > **Failing Test Before Fixing Code**
 
 ### **Coder in a Strange Land**
+
+> **Read the Damn Error Message**
+
+What if it's not the crash? What if it's just a bad result?
+
+Keeping pen and paper nearby to jot down the notes while tracing the problem is very helpful cause you don't lose the trace of where you started the chase. You could lose a lot of time by getting back to start if you don't know.
+
+**Sensitivity to Input Values**
+
+It may happens that your program works fine with all the test data and survives the first week of production with honor. Then it suddenly crashes when fed with particular dataset.
+
+You can work your way backwards. But sometimes it is easier to start with the data.
+- Get a copy of that same dataset.
+- Feed that into your local running copy of app.
+- Make sure that it crases.
+- Binary Chop (Binary search) the data until you find which input values are leading to the crash
+
+### **The Binary Chop**
+
+> *The idea is simple. If you have to find something in a sorted array, you can either search one by one, for which you will go roughly till half the array. But it's faster to user the *divide and conquer approach*.
+
+**The Binary Chop**
+- Take a value from the middle of the array
+- Check if it is the value you are finding, if yes, then you got it.
+- Else, Check if it is greater than then value you are finding, if yes, then you will find your value in the left subarray and completely discard the right subarray.
+- Else, Check if it is smaller than the value you are finding, if yes, then you will find your value in the right subarray anc completely discard the left subarray.
+- Do this until you find your value or there is no subarray on either side to search on which means your number is not in the array.
+
+While trying to do a massive stacktrace, you can apply the same approach to find the which function mangeled the error, you can do a chop in the middle and check if error manifest there, if yes then you need to focus on the frames before, otherwise focus on the frames after.
+
+**Version control use with Binary chop**
+
+If your team has introduced a bug during a set of releases, you can use the same type of technique. Create a test taht causes the current release to fail. Then choose a half-way release between now and the last known working version. Run the test again, and decide how to narrow your search.
+
+**Logging and/or Tracing**
+
+*Debuggers* generally focus on the state of the program now.
+*Tracing statements* are those little diagnostic messages you print to the screen or to a file that say things such as "got here" and "value of x = 2."
+You can use tracing statements to *drill down into the code*.
+
+**Rubber Ducking**
+
+**Explaining the problem to *another person*** you must explicitly state things that you may take for granted when going throught the code yourself. By having to verbalize some of these assumptions., **you may suddenly gain new insight into the problem.** And if you don't have a person, *a rubber duck, or teddy bear, or potted plant* will do.
+
+**Process of Elimination**
+
+It is possible that a bug exists in the OS, the compiler, or a third-party product - but this should not be your **first thought**. **It is generally more profitable to assume that the application code is incorrecty calling into a library than to assume that the lilbrary itself is broken.** Even if the problem does lie with the thir party, you will still have to eliminate your code before submitting the bug report.
+
+> **"select" Isn't Broken**
+
+## **The Element of Surprise**
+
+When faced with a "surprising" failure, you must accept that one or more of your assumtions is wrong.
+
+> **Don't Assume It, Prove it**
+
+When you come across a surprise big, beyond merely fixing it you need to ask some questions:
+
+1. why this failure wan't caught earlier?
+2. Are there any other places in the code that may be susceptible to this same bug?
+3. If it took long time to fix the bug, ask yourself why?
+4. Is the problem being reported a direct result of the underlying bug, or merely a symptom?
+5. Is the bug really in the framework you're using? Is it in the OS? Or is it in your code?
+6. If you explained this problem in detail to a coworker, what would you say?
+7. If the suspect code passes its unit tests, are the tests complete enough? What happens if you run the tests with this data?
+8. Do the conditions that caused this bug exist anywhere else in the system? Are there other bugs still in the larval stage, just waiting to hatch?
+
+If the bug is the result of someone's wrong assumption, discuss the problem with the whole team: if one perosn misunderstands, then it's possible many people do.
+
