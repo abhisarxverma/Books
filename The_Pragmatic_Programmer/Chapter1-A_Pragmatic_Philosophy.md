@@ -1,4 +1,4 @@
-# **Chapter 1 - A Pragmatic Philosophy** 🃏
+# **Chapter 1️⃣ - A Pragmatic Philosophy** 🃏
 
 ## **Software Entropy**
 
