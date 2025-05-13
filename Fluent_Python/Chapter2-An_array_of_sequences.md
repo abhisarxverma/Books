@@ -105,3 +105,52 @@ In general, a sequence pattern matches the subject if:
 The unknown variable that you are seeing in the case's sequence, will try to unpack the items in the message into them.
 
 The last case block have the "_", which is the default case , if the messsage does not match to any of the cases above then, it gets to the default "_" case.
+
+## **🔪 Slicing**
+
+### **Slice objects**
+
+The  notation  a:b:c  is  only  valid  within  `[]`  when  used  as  the  indexing  or  subscript
+operator, and it produces a slice object: `slice(a, b, c)`.
+
+Python calles `sq.__getitem__(slice(a, b, c))`
+
+Slice objects, let's you assign name to the slices, just like spreadsheets allow the naming of the cell ranges.
+
+```python
+invoice = """
+... 0.....6.................................40........52...55........
+... 1909  Pimoroni PiBrella                     $17.50    3    $52.50
+... 1489  6mm Tactile Switch x20                 $4.95    2     $9.90
+... 1510  Panavise Jr. - PV-201                 $28.00    1    $28.00
+... 1601  PiTFT Mini Kit 320x240                $34.95    1    $34.95
+... """
+
+>>> SKU = slice(0, 6)
+>>> DESCRIPTION = slice(6, 40)
+>>> UNIT_PRICE = slice(40, 52)
+>>> QUANTITY =  slice(52, 55)
+>>> ITEM_TOTAL = slice(55, None)
+>>> line_items = invoice.split('\n')[2:]
+>>> for item in line_items:
+...     print(item[UNIT_PRICE], item[DESCRIPTION])
+"""
+    $17.50   Pimoroni PiBrella
+     $4.95   6mm Tactile Switch x20
+    $28.00   Panavise Jr. - PV-201
+    $34.95   PiTFT Mini Kit 320x240
+"""
+```
+
+## **Multidimensional Slicing And Ellipsis**
+
+The  []  operator  can  also  take  multiple  indexes  or  slices  separated  by  commas.  The
+`__getitem__`  and  `__setitem__`  special  methods  that  handle  the  `[]`  operator  simply
+receive the indices in `a[i, j]` as a tuple. In other words, to evaluate `a[i, j]`, Python
+calls `a.__getitem__((i, j))`
+
+Ellipsis is formed from the built-in python ellipsis class.
+
+Used in the numpy's multidimensional array, as shorthand to select all the rows and columns.
+
+Slices also change the sequence in-place.
