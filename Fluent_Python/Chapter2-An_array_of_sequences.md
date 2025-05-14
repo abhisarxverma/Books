@@ -142,7 +142,7 @@ invoice = """
 """
 ```
 
-## **Multidimensional Slicing And Ellipsis**
+## **Multidimensional Slicing And Ellipsis [...]**
 
 The  []  operator  can  also  take  multiple  indexes  or  slices  separated  by  commas.  The
 `__getitem__`  and  `__setitem__`  special  methods  that  handle  the  `[]`  operator  simply
@@ -154,3 +154,62 @@ Ellipsis is formed from the built-in python ellipsis class.
 Used in the numpy's multidimensional array, as shorthand to select all the rows and columns.
 
 Slices also change the sequence in-place.
+
+## **Assigning To Slices**
+
+Mutable sequences can be grafted, excised and therby modified in placy by the slicing.
+
+*When the target of the assignment is a slice, the right hand side must be an iterable object even with one element.*
+
+## **Using + and * with sequences**
+
+Doing `+` or `*` on any sequence, will give a complete new object, but do not change the original sequence.
+
+```python
+>>> l = [0, 1, 1]
+>>> l * 2
+>>> [0, 1, 2, 0, 1, 2]
+>>> s = "python"
+>>> s * 3
+>>> "pythonpythonpython"
+```
+
+## **Building List of Lists**
+
+To make a list of lists, using the `*` operator for that, will give the reference to same inner list every time, and thus changing one item in inner list, will lead to same change in other, so it's better to use the list comprehension for that.
+
+**List comprehension**
+```python
+>>> board = [["_"] * 3 for _ in range(3)]
+>>> board
+>>> [["_", "_", "_"], ["_", "_", "_"], ["_", "_", "_"]]
+>>> board[1][2] = "O"
+>>> board
+>>> [["_", "_", "_"], ["_", "_", "O"], ["_", "_", "_"]]
+```
+
+Using List comprehension will turn the code into:
+```python
+board = []
+for _ in range(3):
+    row = ["_"] * 3 # Create new row every time
+    board.append(row)
+```
+
+**`*` Operator**
+```python
+>>> board = [["_"] * 3] * 3
+>>> board
+>>> [["_", "_", "_"], ["_", "_", "_"], ["_", "_", "_"]]
+>>> board[1][2] = "O"
+>>> board
+>>> [["_", "_", "O"], ["_", "_", "O"], ["_", "_", "O"]]
+```
+
+Using the `*` operator will turn the code into:
+```python
+row = [] * 3
+board = []
+for _ in range(3):
+    board.append(row) # Appending same row every time
+```
