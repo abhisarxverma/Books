@@ -169,9 +169,13 @@ Doing `+` or `*` on any sequence, will give a complete new object, but do not ch
 >>> l = [0, 1, 1]
 >>> l * 2
 >>> [0, 1, 2, 0, 1, 2]
+>>> l
+>>> [0, 1, 2] # Original list is intact
 >>> s = "python"
 >>> s * 3
 >>> "pythonpythonpython"
+>>> s
+>>> "python" # Original string is intact
 ```
 
 ## **Building List of Lists**
