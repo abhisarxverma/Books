@@ -77,3 +77,54 @@ A semantic invariant is a rule that defines what must always be true for your pr
 **Invariant** : “The account balance should never go below 0.”
 
 This rule must always be true. If a withdrawal tries to break that rule, the program should stop it.
+
+## **💀 Dead Programs Tell No Lies**
+
+All the ⭕ __Errors__ give you information. You could convince yourself that the error can't happen, and choose to ignore it. Instead, Pragmatic Programmers tell themselves that if there is an error, something very, __very bad has happened__.
+
+### **🎣 Catch and Release Is For Fish**
+
+**🚫 The Problem: Catching Everything**
+
+Some developers write code like this:
+
+```python
+try:
+    risky_operation()
+except Exception as e:
+    print(f"Something went wrong: {e}")  # ❌ Just logging and moving on
+    raise e  # ❌ Re-raising without any real handling
+```
+
+This approach catches exceptions unnecessarily, logs them, and then re-raises—cluttering the code with redundant handling.
+
+**✅ The Right Approach: Catch Only When Necessary**
+
+Instead of catching everything, catch exceptions only when you can actually handle them:
+
+```python
+try:
+    risky_operation()
+except FileNotFoundError:
+    print("The file doesn't exist! Please check the path.")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+```
+
+**🚀 Key Takeaways**
+
+    - Don't catch exceptions just for the sake of it 🛑
+    - Let the program fail if the error is critical 🔥
+    - Catch and handle exceptions only when necessary 🎯
+
+Next time you're tempted to "catch all", remember: 👉 Catch and release is for fish, not for exceptions! 🎣
+
+> **👉 Crash Early**
+
+### **Crash, Don't Trash**
+
+The __Basic Principle__ stays the same - when your code discovers that somethign that was supposed to be impossible just happened, your program is no longer viable.
+
+Anything it does from this point forward becomes suspect, so terminate it as soon as possible.
+
+### ***Let is Crash!***
