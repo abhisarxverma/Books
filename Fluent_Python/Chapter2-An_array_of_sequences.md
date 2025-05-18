@@ -217,3 +217,70 @@ board = []
 for _ in range(3):
     board.append(row) # Appending same row every time
 ```
+
+## **Augmented Assignment With Sequences**
+
+The special method that makes += work is **"__iadd__"** (for “in-place addition”).
+
+However, if **"__iadd__"** is not implemented, Python falls back to calling **"__add__"**. Con‐
+sider this simple expression:
+
+```
+a += b
+```
+
+**Mutable Sequences** - If **"__iadd__"** is implemented, then the Sequence will changed in place, but if not implemented, then `a = a + b` gets performed, which first do `a + b`, then bound to `a`, which chagnes the identity of the sequence `a`.
+
+**Immutable Sequence** - Doing **"__iadd__"** on immutable sequences, will change the identity of the object, meaning, it give a new one.
+
+## **A += Assignment Puzzler**
+
+**A riddle**
+
+```python
+>>> t = (1, 2, [30, 40])
+>>> t[2] += [50, 60]
+```
+
+What happens next? Choose the best answer:
+
+A. t becomes (1, 2, [30, 40, 50, 60]).
+B. TypeError is raised with the message 'tuple' object does not support item
+assignment.
+C. Neither.
+D. Both A and B
+
+__The unexpected result__: item t2 is changed and an exception is raised.
+
+```python
+>>> t = (1, 2, [30, 40])
+>>> t[2] += [50, 60]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> t
+(1, 2, [30, 40, 50, 60])
+```
+
+***Avoid Putting Immutable Items in the Tuples***
+
+## **list.sort() VS sorted(list) Builtin**
+
+`list.sort()` sort the list in-place and returns `None` to remind us that it changes the reciever, and does not create a new python object.
+
+**✔️ Important Python API Convention:** Functions or methods that changes the object in-place, should return `None` to make it clear that receiver was changed and no new object is created.
+
+**⭕ Drawback of the Returning `None` Convention:** We cannot ***Cascade Calls (Method Chaining - Calling methods on the methods continuously.)***.
+
+***`Sorted`*** - Creates a new list and returns it. It accepts any iterable object as an argument, including immutable sequences and generators.
+
+Regardless of the type of sequence passed in the `sorted`, it always returns a new list.
+
+Both list.sort and sorted take two optional, keyword-only arguments:
+
+**`reverse`**
+If `True`, the items are returned in descending order (i.e., by reversing the comparison of the items). The default is `False`.
+
+**`key`**
+A one-argument function that will be applied to each item to produce its sorting `key`. The default is the `identity function` (i.e., the items themselves are
+compared)
