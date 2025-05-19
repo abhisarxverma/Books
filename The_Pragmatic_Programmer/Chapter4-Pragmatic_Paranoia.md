@@ -128,3 +128,37 @@ The __Basic Principle__ stays the same - when your code discovers that somethign
 Anything it does from this point forward becomes suspect, so terminate it as soon as possible.
 
 ### ***Let is Crash!***
+
+## **🚀 Assertive Programming**
+
+### **Leave Assertions Turned On**
+
+**🔍 Stop Saying "This Can Never Happen!"**
+
+Every time you think "there’s no way this could fail", add an assertion to check it. Assertions help catch the impossible before it breaks your code.
+
+**⚠️ Two Common Misconceptions**
+
+- 1️⃣ "Testing finds all the bugs" → Nope. You barely test a fraction of all possible scenarios. 
+
+- 2️⃣ "In production, assertions aren’t needed" → Big mistake. Real errors happen when users interact with your software, not just during testing.
+
+**🎯 Why Keep Assertions in Production?**
+
+A startup once left assertions in production, reporting real-time failures with rich diagnostics. This allowed them to fix hard-to-reproduce bugs, creating bulletproof software—leading to an acquisition worth hundreds of millions.
+
+**🛠 Rule of Thumb**
+
+- ✅ Use assertions to catch what should be impossible 
+- ✅ Keep them ON in production 
+- ✅ Let them expose hidden flaws BEFORE they cost you
+
+💡 Smart developers trust assertions. Great developers leave them turned on. 🚀
+
+## **How To Balance Resources**
+
+Many developers have no consistent plan for dealing with resource allocation and deallocation.
+
+> **Finish what you start**
+
+This simply means that the function or the object that allocates a resource should be responsible for deallocating it.
