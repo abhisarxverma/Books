@@ -241,3 +241,45 @@ with open("file.txt") as file:
 ### ✨ In Short:
 
 > "If you **open it**, you **close it**. If you **lock it**, you **unlock it**. If you **allocate**, you **deallocate**."
+
+## **Don't Outrun Your Headlights**
+
+> **👉 Take small steps**
+
+Always take small, deliberate steps, Checking for feedback and adjusting before proceeding. Consider that the rate of feedback is your speed limit. You never take on a step or a task that's "**too big**".
+
+**👨‍🍼 What is Feedback? Anything that independently confirms or disproves your actions**
+
+- Results in a REPL provide feedback on your understanding of APIs and algorithms.
+- Unit tests provide feedback on your last code change.
+- User demo and conversation provide feedback on features and usability.
+
+**🎡 What's a task that too big?** - Anything that requires __fortune telling__ .
+
+Trying to see future beyond one or two steps, maybe a few hours or days at most, willget past the **educated guess** and into **wild speculation**.
+
+This can happen when - 
+
+- Estimate completion dates months in the future
+- plan a design for future maintenance or extendability
+- Guess user's future needs
+- Guess future tech availability
+
+```
+Instead of wasting effort designing for an uncertain future, you can always fall back on designing your code to be replaceable. Make it easy to throw out your code and replace it with something better suited. 
+
+Making code replaceable will also help with cohesion, coupling and DRY, leading to a better design overall.
+```
+
+### **Black Swans**
+
+Our own cognitive biases tend to blind us to changes creeping up on the edges or our work.
+
+> **Avoid Fortune-Telling**
+
+Much of the time, tomorrow looks a lot like today, But don't count on it.
+
+</br>
+<div>
+    <h1 style="text-align: center; font-family: monospace;">CHAPTER 4 OVER - THANK YOU</h1>
+</div>
