@@ -243,3 +243,51 @@ Acts as a middleman between publishers and subscribers.
 
 Ensures messages reach the right audience.
 
+# 🔄 Reactive Programming, Streams And Events
+
+> Instead of storing just the current state, you store the **changes in state over time**.
+
+* Traditional programming:
+
+  > "Give me the value of X."
+* Reactive thinking:
+
+  > "Tell me **whenever X changes**."
+
+The **real world doesn’t work in static snapshots** — it works in **continuous flows**:
+
+* Button clicks
+* Sensor readings
+* Stock prices
+* Keypresses
+
+This is why **reactive programming** is a better model: it lets you **subscribe to the flow of time-based events** (streams), instead of constantly checking for change.
+
+---
+
+### 🔄 Mindset Shift They Emphasize:
+
+| Old Way (Pull)                     | New Way (Push / React)             |
+| ---------------------------------- | ---------------------------------- |
+| "Check every second for an update" | "Get notified **when** it updates" |
+| "Poll the server"                  | "Subscribe to a data stream"       |
+| "Call function when needed"        | "Function **reacts to events**"    |
+
+---
+
+### 🧩 Why It Matters:
+
+* Your programs become more **flexible** and **composable**.
+* You stop fighting time and state.
+* You write cleaner code that matches **how real-world systems behave**.
+
+---
+
+### 💬 Key Quote-like Insight from the Authors:
+
+> “You don’t ask what time it is every second.
+> You just wear a watch, and **it tells you when you need to know**.”
+
+---
+
+
