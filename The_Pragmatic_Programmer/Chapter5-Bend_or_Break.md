@@ -243,7 +243,7 @@ Acts as a middleman between publishers and subscribers.
 
 Ensures messages reach the right audience.
 
-# 🔄 Reactive Programming, Streams And Events
+## **🔄 Reactive Programming, Streams And Events**
 
 > Instead of storing just the current state, you store the **changes in state over time**.
 
@@ -294,7 +294,7 @@ Sure bro — here’s the summary of **“Transforming Programming”** from *Th
 
 ---
 
-# 🌱 Transforming Programming
+## **🌱 Transforming Programming**
 
 ## 🔧 Key Practices & To-Do’s
 
@@ -335,5 +335,137 @@ Sure bro — here’s the summary of **“Transforming Programming”** from *Th
 * Keep settings/data **outside** code (e.g., `.env`, JSON, YAML).
 * Lets non-devs tweak behavior.
 * Makes your code environment-agnostic.
+
+---
+## **🧬 Inheritance Tax: Why Inheritance Can Be Problematic**
+
+### **🔗 Inheritance Introduces Tight Coupling**
+
+- **Strong Coupling Across Hierarchies**: When a subclass inherits from a parent class, it becomes tightly coupled not only to that parent but also to all ancestor classes. This means changes in any ancestor can have unintended ripple effects on the subclass.
+
+- **Unintended Dependencies**: Subclasses may inherit methods and properties they don't need, leading to unnecessary dependencies and potential confusion.
+
+- **Fragile Base Class Problem**: Modifications in a base class can inadvertently break functionality in subclasses, making maintenance and updates risky.
+
+**🚫 The Banana-Gorilla-Jungle Analogy**
+
+```You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.```
+
+## Alternatives to Inheritance
+
+### 1. **✅ Interfaces** (via Abstract Base Classes)
+
+### 📘 What It Means:
+
+* Define a **contract** of what methods a class must implement.
+* Prevents tightly-coupled inheritance.
+* Implemented via `abc` module in Python.
+
+### 🧪 Example:
+
+```python
+from abc import ABC, abstractmethod
+
+class Notifier(ABC):  # Interface
+    @abstractmethod
+    def notify(self, message: str) -> None:
+        pass
+
+class EmailNotifier(Notifier):
+    def notify(self, message: str) -> None:
+        print(f"📧 Email sent: {message}")
+
+class SMSNotifier(Notifier):
+    def notify(self, message: str) -> None:
+        print(f"📱 SMS sent: {message}")
+
+def alert_user(notifier: Notifier):
+    notifier.notify("Server is down!")
+
+alert_user(EmailNotifier())  # works
+```
+
+### 🧠 Why?
+
+* Clear separation of concerns.
+* Any class *can* implement this behavior, no rigid inheritance chain.
+
+---
+
+### 2. **🔄 Delegation / Composition**
+
+### 📘 What It Means:
+
+* Rather than extending a class, you create an **instance** of another class inside your own.
+* Delegate work to it.
+
+### 🧪 Example:
+
+```python
+class Logger:
+    def log(self, msg: str):
+        print(f"[LOG]: {msg}")
+
+class FileUploader:
+    def __init__(self, logger: Logger):
+        self.logger = logger
+
+    def upload(self, filename: str):
+        self.logger.log(f"Uploading {filename}...")
+        print("Upload complete!")
+
+uploader = FileUploader(Logger())
+uploader.upload("cat_photo.jpg")
+```
+
+### 🧠 Why?
+
+* Swap any part (e.g., `Logger`) without affecting other logic.
+* More flexible than inheritance.
+
+---
+
+### 3. **🧬 Mixins**
+
+### 📘 What It Means:
+
+* A mixin is a **class with reusable methods** but not intended to stand alone.
+* Use multiple inheritance to “mix in” behavior.
+
+### 🧪 Example:
+
+```python
+class JsonMixin:
+    def to_json(self):
+        import json
+        return json.dumps(self.__dict__)
+
+class LoggerMixin:
+    def log(self, msg):
+        print(f"[Mixin Log]: {msg}")
+
+class User(JsonMixin, LoggerMixin):
+    def __init__(self, username):
+        self.username = username
+
+u = User("akira")
+u.log("Welcome!")  # from LoggerMixin
+print(u.to_json())  # from JsonMixin
+```
+
+### 🧠 Why?
+
+* Easily reuse logic in unrelated classes.
+* Combine multiple behaviors with zero hierarchy constraints.
+
+---
+
+## 🔚 Summary Table
+
+| Pattern    | In Python                     | Key Module | Use When…                           |
+| ---------- | ----------------------------- | ---------- | ----------------------------------- |
+| Interfaces | `abc.ABC` + `@abstractmethod` | `abc`      | You want a contract, not code       |
+| Delegation | Class composition             | —          | You want flexibility + swappability |
+| Mixins     | Multiple inheritance          | —          | You want to add features cleanly    |
 
 ---
