@@ -469,3 +469,7 @@ print(u.to_json())  # from JsonMixin
 | Mixins     | Multiple inheritance          | —          | You want to add features cleanly    |
 
 ---
+
+<div style="display: flex; justify-content: center">
+    <h1 style="font-family: "monospace">CHAPTER OVER</h1>
+</div>
