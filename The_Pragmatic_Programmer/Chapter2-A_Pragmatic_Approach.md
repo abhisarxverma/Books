@@ -100,3 +100,6 @@ In Prototying, You throw away the earlier code and then code again while correct
 
 In Tracer code, you do not want to achieve the perfect code for a particular component, but what you want is that you code a minimal system that replicate what is the main feature of the project that goes from every main components of the project. And this will be given to users to have interactions and give feedback and this will be the architectural code on which the developers will hang code on.
 
+<div style="display: flex; justify-content: center">
+    <h1 style="font-family: "monospace">CHAPTER OVER</h1>
+</div>
