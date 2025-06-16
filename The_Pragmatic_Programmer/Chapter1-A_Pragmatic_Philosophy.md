@@ -97,3 +97,6 @@ But do not believe everything you read and hear.
 - *When or Where would this work?* - Don't stop with the first-order thinking *(what will happen next)*, but use second-order thinking *(What will happen after that)*.
 - *Why is this a problem?* - How does the underlying model work?
 
+<div style="display: flex; justify-content: center">
+    <h1 style="font-family: "monospace">CHAPTER OVER</h1>
+</div>
