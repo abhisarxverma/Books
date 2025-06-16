@@ -280,6 +280,6 @@ Our own cognitive biases tend to blind us to changes creeping up on the edges or
 Much of the time, tomorrow looks a lot like today, But don't count on it.
 
 </br>
-<div>
-    <h1 style="text-align: center; font-family: monospace;">CHAPTER 4 OVER - THANK YOU</h1>
+<div style="display: flex; justify-content: center">
+    <h1 style="font-family: "monospace">CHAPTER OVER</h1>
 </div>
