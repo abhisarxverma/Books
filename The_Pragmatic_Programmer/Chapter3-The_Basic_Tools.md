@@ -189,3 +189,7 @@ Learning and using a text manipultaion language, you can quickly hack up utiliti
 *Even you can look back at what you were doing years ago, the peoples, the projects, the fun*
 
 > Try keeping an Engineering Daybook. Use paper, not a file or a wiki: there's something special about the act of writing compared to typing.
+
+<div style="display: flex; justify-content: center">
+    <h1 style="font-family: "monospace">CHAPTER OVER</h1>
+</div>
